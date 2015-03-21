@@ -106,10 +106,16 @@ Alterações de código --> git status (1) --> git diff (2) ---
  git push (5) <--- git commit -m "Mensagem" (4) <--- git add (3)
 ```
 
+Onde:
+
 (1): Mostra os arquivos alterados
+
 (2): Verifica as alterações
+
 (3): Adiciona todos os arquivos
+
 (4): "Empacota" as alterações e adiciona uma mensagem
+
 (5): Empurra as alterações para o servidor
 
 
