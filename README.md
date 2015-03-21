@@ -24,6 +24,7 @@ Separando em partes:
 
 
 ### Comandos no terminal
+
 Os comandos que você tem que digitar vão vir com esse nomenclatura:
 
 ```
@@ -33,6 +34,16 @@ $ comando_a_ser_executado
 Lembrando que o símbolo `$` já está no terminal, então só precisa copiar a partir dele.
 
 **Dica:** Para colar comandos no terminal, copie o comando e cole com `[CTRL]+[SHIFT]+[V]`
+
+### Comandos `sudo`
+
+Vários comandos irão começar com o comando `sudo`, que seria para executar como administrador.
+
+Quando você confirma um comando desses, irá aparecer um comando desses:
+```
+[sudo] password for seu_nome:  
+```
+Quando você digitar a senha, não vai aparecer nada que te indique que está digitando. Isso é normal. Quando você confirmar sua senha com [ENTER], o comando irá continuar normalmente.
 
 
 ## Python
@@ -59,6 +70,8 @@ Agora, no canto esquerdo do terminal deve estar escrito `(cidadeiluminada)`, iss
 
 Entretanto, o git e o banco estão desconfigurados. Vamos começar com o git, que é mais fácil.
 
+## Git
+
 ### Configurando o git e o GitHub
 [Guia oficial](https://help.github.com/articles/set-up-git/)
 
@@ -76,7 +89,28 @@ O SSH é mais chato:
 1. Digite no terminal `ssh-add ~/.ssh/id_rsa`
 1. Digite no terminal `gedit ~/.ssh/id_rsa.pub`. Um editor de texto deve abrir. Copie tudo.
 1. [Siga os passos para adicionar a senha na conta do GitHub](https://help.github.com/articles/generating-ssh-keys/#step-3-add-your-ssh-key-to-your-account)
-1. A partir daqui o ssh deve estar funcionando.[ Teste seguindo o **Step 4** do guia do GitHub](https://help.github.com/articles/generating-ssh-keys/#step-4-test-everything-out)
+1. A partir daqui o ssh deve estar funcionando.[Teste seguindo o **Step 4** do guia do GitHub](https://help.github.com/articles/generating-ssh-keys/#step-4-test-everything-out)
+
+  
+### Trabalhando com o git
+
+
+O git segue um loop de trabalho:
+
+```
+
+Alterações de código --> git status (1) --> git diff (2) ---
+ ^                                                         |
+ |                                                         |
+ |                                                         v
+ git push (5) <--- git commit -m "Mensagem" (4) <--- git add (3)
+```
+
+(1): Mostra os arquivos alterados
+(2): Verifica as alterações
+(3): Adiciona todos os arquivos
+(4): "Empacota" as alterações e adiciona uma mensagem
+(5): Empurra as alterações para o servidor
 
 
 ### Banco de dados (PostgreSQL)
@@ -159,7 +193,7 @@ $ sudo apt-get install lib32ncurses5-dev
 $ sudo apt-get install lib32stdc++6
 ```
 
-Como o Android Studio não tem um bom suporte para instalação pela linha de comando, o melhor recurso é [este](http://developer.android.com/training/index.html) link, que já segue em um tutorial básico de aplicação.
+Como o Android Studio não tem um bom suporte para instalação pela linha de comando, o melhor recurso é [este](http://developer.android.com/training/index.html) link, que também já segue em um tutorial básico de aplicação.
 
 Depois de instalado o Android Studio, convém criar um comando de atalho:
 
@@ -169,13 +203,6 @@ Depois de instalado o Android Studio, convém criar um comando de atalho:
 $ printf "cd <caminho_para_a_pasta>/android-studio/bin\nsh studio.sh" >> android_studio
 $ chmod +x android_studio
 $ sudo mv android_studio /bin/
-```
-
-sudo mv teste /bin/
-```
-printf
-cd ~/code/android-studio/bin
-sh studio.sh
 ```
 
 ##Configurações de ambiente
