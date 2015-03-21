@@ -1,6 +1,44 @@
-# TCMCidadeIluminada
+# Instalação no Ubuntu
 
-## Instalação do ambiente de desenvolvimento no Ubuntu
+Este documento é um conjunto de instruções para instalar um ambiente de desenvolvimento para Python com o PostgreSQL como banco de dados, e Android. Recomendo seguir a seção de instalação dos programas na ordem do documento.
+
+Vou assumir aqui que a sua instalação do Ubuntu é completamente nova. Esse guia foi escrito para o Ubuntu 14.04 LTS.
+
+### Abrindo o terminal
+
+A maior parte da instalação será feita pelo terminal do Linux, que é onde você digita comandos diretamente para o Ubuntu e ele executa da melhor maneira que ele conseguir.
+
+Para abrir o terminal, aperte a tecla `[SUPER]` (Na maioria dos teclados, é a mesma tecla com o símbolo do Windows), digite `terminal` e aperte `[ENTER]`. Uma janela escura é aberta com a seguinte linha:
+```
+seu_nome@seu_computador:~$
+```
+
+Separando em partes:
+
+* `seu_nome` é o nome de usuário que você configurou na instalação.
+* `@` significa que `seu_nome` está logado em `seu_computador`
+* `seu_computador` é o nome do computador que você configurou na instalação.
+* `:` separa as partes.
+* `~` mostra a pasta que você está agora. `~` significa que você está na pasta `/home/seu_usuário`
+* `$` significa que tudo o que vem depois é um comando digitado.
+
+
+### Comandos no terminal
+Os comandos que você tem que digitar vão vir com esse nomenclatura:
+
+```
+$ comando_a_ser_executado
+```
+
+Lembrando que o símbolo `$` já está no terminal, então só precisa copiar a partir dele.
+
+**Dica:** Para colar comandos no terminal, copie o comando e cole com `[CTRL]+[SHIFT]+[V]`
+
+
+## Python
+
+Vamos começar com o mais simples.
+
 1. Baixe o arquivo `install.sh` da raíz do repositório.
 1. Abra um terminal.
     1. Aperte a tecla do Windows
@@ -103,8 +141,42 @@ Para rodar, entre na pasta que extraiu e digite:
 1. `cd bin`
 1. `sh pycharm.sh`
 
-## Instalação do ambiente de desenvolvimento no Windows
-lol
+## Android
+
+Primeiro vamos instalar o Java da Oracle:
+
+```
+$ sudo add-apt-repository ppa:webupd8team/java
+$ sudo apt-get update
+$ sudo apt-get install oracle-java8-installer
+```
+
+Como o Android é uma plataforma de 32 bits, precisamos instalar bibliotecas que nos permitam compilar para essa plataforma. Rode:
+
+```
+$ sudo apt-get install lib32z1 
+$ sudo apt-get install lib32ncurses5-dev 
+$ sudo apt-get install lib32stdc++6
+```
+
+Como o Android Studio não tem um bom suporte para instalação pela linha de comando, o melhor recurso é [este](http://developer.android.com/training/index.html) link, que já segue em um tutorial básico de aplicação.
+
+Depois de instalado o Android Studio, convém criar um comando de atalho:
+
+**Substitua `<caminho_para_a_pasta>` com o caminho para a pasta onde está a pasta do Android Studio**
+
+```
+$ printf "cd <caminho_para_a_pasta>/android-studio/bin\nsh studio.sh" >> android_studio
+$ chmod +x android_studio
+$ sudo mv android_studio /bin/
+```
+
+sudo mv teste /bin/
+```
+printf
+cd ~/code/android-studio/bin
+sh studio.sh
+```
 
 ##Configurações de ambiente
 
