@@ -43,12 +43,12 @@ Quando você confirma um comando desses, irá aparecer um comando desses:
 ```
 [sudo] password for seu_nome:  
 ```
-Quando você digitar a senha, não vai aparecer nada que te indique que está digitando. Isso é normal. Quando você confirmar sua senha com [ENTER], o comando irá continuar normalmente.
+Quando você digitar a senha, não vai aparecer nada que te indique que está digitando. Isso é normal. Quando você confirmar sua senha com `[ENTER]`, o comando irá continuar normalmente.
 
 
 ### Deu pau!
 
-Por vários motivos, *alguma* coisa vai dar errado alguma hora, e esse documento não pode prever todos os possíveis erros. Nessas horas, [Google é seu amigo](www.google.com.br). Copie o erro que apareceu, cole no Google e boa sorte.
+Por vários motivos, *alguma* coisa vai dar errado alguma hora, e esse documento não pode prever todos os possíveis erros. Nessas horas, [Google é seu amigo](http://www.google.com.br). Copie o erro que apareceu, cole no Google e boa sorte.
 
 Se você conseguir arrumar seu erro, por favor, dê um Pull Request e atualize esse documento para ajudar todos!
 
@@ -102,7 +102,7 @@ O **Sublime Text** é um editor de texto muito bom e poderoso, principalmente po
 
 Para isso, visite o site do [Package Control](https://packagecontrol.io/installation) e siga as instruções.
 
-Depois de instalado, com o Sublime aberto digite [CTRL]+[SHIFT]+[P]. Isso irá abrir uma lista com vários comandos e um lugar para digitar comandos. Digite `Install`. Isso irá filtrar a lista e deverá selecionar `Package Control: Install Package`. Digite [ENTER]
+Depois de instalado, com o Sublime aberto digite `[CTRL]+[SHIFT]+[P]`. Isso irá abrir uma lista com vários comandos e um lugar para digitar comandos. Digite `Install`. Isso irá filtrar a lista e deverá selecionar `Package Control: Install Package`. Digite `[ENTER]`
 
 Após a lista recarregar, ela deve abrir de novo com vários items. Todos esses são uma extensão do Sublime. Para Python, recomendo instalar `PythonChecker`, `SublimeCodeIntel` e `SublimeTmpl`
 
@@ -228,7 +228,7 @@ $ sudo apt-get install vim
 ```
 
 ### Configurando o git e o GitHub
-Entre em [GitHub](www.github.com) e faça uma conta.
+Entre em [GitHub](http://www.github.com) e faça uma conta.
 
 Se você quiser seguir o guia oficial em inglès, clique [aqui](https://help.github.com/articles/set-up-git/).
 
@@ -259,9 +259,9 @@ Vamos fazer um mini-curso de vim. Abra o vim digitando
 $ vim
 ```
 
-O vim tem basicamente dois modos: O modo de **Comando** e **Inserção**. Ele abre no modo de comando. Aperte [INSERT] para ir para o modo de inserção (Deve estar escrito `-- INSERT --` no canto inferior esquerdo da tela) e digite qualquer coisa.
+O vim tem basicamente dois modos: O modo de **Comando** e **Inserção**. Ele abre no modo de comando. Aperte `[INSERT]` para ir para o modo de inserção (Deve estar escrito `-- INSERT --` no canto inferior esquerdo da tela) e digite qualquer coisa.
 
-Para salvar o que escrevemos, aperte [ESC] (O `-- INSERT --` tem que sumir da tela). Para salvar um arquivo com o nome `teste`, digite `:w teste`. Para sair, digite `:q`.
+Para salvar o que escrevemos, aperte `[ESC]` (O `-- INSERT --` tem que sumir da tela). Para salvar um arquivo com o nome `teste`, digite `:w teste`. Para sair, digite `:q`.
 
 O vim pode ser bem espartano, mas ele, por padrão, faz tudo o que ele pode fazer para que você não perca dados. Por exemplo, ele não te deixa sair até que você salve suas alterações, ou ele não deixa você sobreescrever arquivos que não estejam abertos. Para forçar ele a fazer essas coisas, coloque um `!` depois do comando, por exemplo, `:q!` sai sem salvar o arquivo, e `:w!` sobrescreve arquivos.
 
