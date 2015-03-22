@@ -46,29 +46,133 @@ Quando você confirma um comando desses, irá aparecer um comando desses:
 Quando você digitar a senha, não vai aparecer nada que te indique que está digitando. Isso é normal. Quando você confirmar sua senha com [ENTER], o comando irá continuar normalmente.
 
 
+### Deu pau!
+
+Por vários motivos, *alguma* coisa vai dar errado alguma hora, e esse documento não pode prever todos os possíveis erros. Nessas horas, [Google é seu amigo](www.google.com.br). Copie o erro que apareceu, cole no Google e boa sorte.
+
+Se você conseguir arrumar seu erro, dê um Pull Request e atualize esse documento para ajudar todos!
+
+
 ## Python
 
 Vamos começar com o mais simples.
 
-1. Baixe o arquivo `install.sh` da raíz do repositório.
-1. Abra um terminal.
-    1. Aperte a tecla do Windows
-    1. Digite `terminal`
-    1. Aperte `[ENTER]`
-    1. Trave o terminal na barra do Ubuntu, para isso, clique com o botão direito no ícone e clique em travar na barra.
-1. Recomendo colocar o script em uma pasta separada:
-    1. `mkdir code`
-    1. `cd code`
-    1. `mv ../install.sh ./`
-1. Digite `sh install.sh`. Se ele pedir uma senha, digite a senha que você usa para entrar no Ubuntu.  **Note que** a senha não vai aparecer na tela, mas ela vai funcionar normalmente.
+Digite no terminal
 
-**Dica:** Você pode copiar e colar os comandos no terminal usando `[CTRL+SHIFT+V]`
+```
+$ sudo apt-get install python-dev
+$ sudo apt-get install python-pip
+```
 
-Neste ponto o python, o Java, o virtualenvwrapper, o banco de dados e o git estão instalados.
+Isso irá instalar o python de desenvolvimento e o gerenciador de pacotes do python.
 
-Agora, no canto esquerdo do terminal deve estar escrito `(cidadeiluminada)`, isso quer dizer que o ambiente de desenvolvimento de python está ativo. Quando você fechar o terminal e voltar, o ambiente vai voltar ao normal. Para ativar de novo, digite `workon cidadeiluminada`. **Dica:** Use o `[TAB]`
+Para testar digite no terminal
 
-Entretanto, o git e o banco estão desconfigurados. Vamos começar com o git, que é mais fácil.
+```
+$ python --version
+```
+
+O comando deve retornar algo do tipo
+```
+Python 2.7.x
+```
+
+Onde `x` é um número qualquer.
+
+### IDEs de Python
+
+As IDEs mais recomendadas para Python são o **PyCharm** e **Sublime Text**
+
+#### Sublime Text
+
+O **Sublime Text** é um editor de texto muito bom e poderoso, principalmente porque ele pode receber vários plugins para extender suas funcionalidades.
+
+Para isso, visite o site do [Package Control](https://packagecontrol.io/installation) e siga as instruções.
+
+Depois de instalado, com o Sublime aberto digite [CTRL]+[SHIFT]+[P]. Isso irá abrir uma lista com vários comandos e um lugar para digitar comandos. Digite `Install`. Isso irá filtrar a lista e deverá selecionar `Package Control: Install Package`. Digite [ENTER]
+
+Após a lista recarregar, ela deve abrir de novo com vários items. Todos esses são uma extensão do Sublime. Para Python, recomendo instalar `PythonChecker`, `SublimeCodeIntel` e `SublimeTmpl`
+
+##### Configurando o Sublime
+
+O PythonChecker e o CodeIntel não precisam de configurações adicionais, mas o Tmp é uma extensão que tem templates de arquivos de várias linguagems, e a de Python dele não é muito boa na minha opinião. Para alterar, clique em **Preferences>Browse Packages**. Isso irá abrir uma janela dentro da pasta *Packages*. Entre nas pastas **User>SublimeTmpl>templates** e crie um arquivo chamado `python.tmpl`.
+
+Coloque o seguinte dentro dele:
+
+```
+# coding: UTF-8
+from __future__ import absolute_import
+
+$0
+```
+
+Feche e salve.
+
+Para configurar o Sublime em si, clique em **Preferences>Settings-User** e cole o seguinte arquivo:
+
+```
+{
+	"caret_style": "phase",
+	"detect_indentation": false,
+	"dictionary": "",
+	"draw_minimap_border": true,
+	"draw_white_space": "all",
+	"enable_tab_scrolling": false,
+	"enable_telemetry": "disabled",
+	"ensure_newline_at_eof_on_save": true,
+	"fold_buttons": false,
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		"gen",
+		"venv",
+		".idea"
+	],
+	"font_size": 10,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Markdown",
+		"Vintage"
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"margin": 0,
+	"python_interpreter_path": "/usr/bin/python",
+	"rulers":
+	[
+		79
+	],
+	"shift_tab_unindent": true,
+	"show_full_path": false,
+	"show_tab_close_buttons": false,
+	"spell_check": false,
+	"spellcheck": false,
+	"tab_size": 4,
+	"translate_tabs_to_spaces": true,
+	"trim_automatic_white_space": true,
+	"trim_trailing_white_space_on_save": true,
+	"use_tab_stops": true,
+	"word_wrap": false
+}
+```
+Para mais informações em o que cada opção faz, clique em **Preferences>Settings-Default**.
+
+
+#### PyCharm
+[Baixe aqui](https://download.jetbrains.com/python/pycharm-community-4.0.4.tar.gz) e descompacte para qualquer lugar.
+
+Para rodar, entre na pasta do PyCharm dentro de onde você extraiu e digite:
+```
+$ cd bin
+$ sh pycharm.sh 
+```
 
 ## Git
 
@@ -171,15 +275,6 @@ Se deu tudo certo, o seu terminal vai ter algo do tipo
 aparecendo.
 
 Por fim, crie o usuário padrão: `python manage.py criar_usuario admin admin`
-
-
-### Instalando o PyCharm
-[Baixe aqui](https://download.jetbrains.com/python/pycharm-community-4.0.4.tar.gz) e descompacte para qualquer lugar.
-
-Para rodar, entre na pasta que extraiu e digite:
-
-1. `cd bin`
-1. `sh pycharm.sh`
 
 ## Android
 
