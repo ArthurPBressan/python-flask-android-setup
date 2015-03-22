@@ -87,6 +87,11 @@ Python 2.7.x
 
 Onde `x` é um número qualquer.
 
+Depois de testar, vamos atualizar o pip:
+```
+$ sudo pip install --upgrade pip
+```
+
 ### IDEs de Python
 
 As IDEs mais recomendadas para Python são o **PyCharm** e **Sublime Text**
@@ -180,6 +185,35 @@ Para rodar, entre na pasta do PyCharm dentro de onde você extraiu e digite:
 ```
 $ cd bin
 $ sh pycharm.sh 
+```
+
+### Virtualenv
+
+O **Virtualenv** é uma ferramenta para configurar ambientes virtuais de programação em python, assim separando cada projeto seu em ambientes e evitando conflitos nas bibliotecas.
+
+O virtualenv já está instalado, mas vamos instalar o **Virtualenvwrapper**, que faz o gerenciamento dos virtualenvs ficar mais fácil. Digite:
+
+```
+$ sudo pip install virtualenvwrapper
+$ mkdir ~/.virtualenvs
+$ printf 'export WORKON_HOME=$HOME/.virtualenvs\nsource /usr/local/bin/virtualenvwrapper.sh\n' >> ~/.bashrc
+$ source ~/.bashrc
+```
+
+Vamos testar criando um virtualenv:
+```
+$ mkvirtualenv teste
+```
+
+Se tudo deu certo, o seu prompt deve ficar como:
+```
+(teste)seu_nome@seu_computador:~$
+```
+Onde `teste` é o nome do virtualenv.
+
+Quando você fechar o seu console, para voltar para o ambiente virtual, digite
+```
+workon nome_do_ambiente
 ```
 
 ## Git
