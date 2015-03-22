@@ -50,8 +50,16 @@ Quando você digitar a senha, não vai aparecer nada que te indique que está di
 
 Por vários motivos, *alguma* coisa vai dar errado alguma hora, e esse documento não pode prever todos os possíveis erros. Nessas horas, [Google é seu amigo](www.google.com.br). Copie o erro que apareceu, cole no Google e boa sorte.
 
-Se você conseguir arrumar seu erro, dê um Pull Request e atualize esse documento para ajudar todos!
+Se você conseguir arrumar seu erro, por favor, dê um Pull Request e atualize esse documento para ajudar todos!
 
+
+## Chrome
+
+Sugiro instalar o Chromium como o browser para desenvolvimento web.
+
+```
+$ sudo apt-get install chromium-browser
+```
 
 ## Python
 
@@ -106,7 +114,7 @@ from __future__ import absolute_import
 $0
 ```
 
-Feche e salve.
+Salve e feche.
 
 Para configurar o Sublime em si, clique em **Preferences>Settings-User** e cole o seguinte arquivo:
 
@@ -176,29 +184,59 @@ $ sh pycharm.sh
 
 ## Git
 
+O **git** é um sistema de versão de controle, fundamental para se trabalhar em equipe.
+
+Para instalar, digite 
+
+```
+$ sudo apt-get install git
+$ sudo apt-get install vim
+```
+
 ### Configurando o git e o GitHub
-[Guia oficial](https://help.github.com/articles/set-up-git/)
+Entre em [GitHub](www.github.com) e faça uma conta.
 
-Para configurar o git é simples. No terminal, digite:
+Se você quiser seguir o guia oficial em inglès, clique [aqui](https://help.github.com/articles/set-up-git/).
 
-1. `git config --global user.name "YOUR NAME"`
-1. `git config --global user.email "YOUR EMAIL ADDRESS"`
-1. `git config --global core.editor vim`
+No terminal, digite:
 
-O SSH é mais chato:
+```
+$ git config --global user.name "seu_email"
+$ git config --global user.email "seu_email"
+$ git config --global core.editor vim
+```
+Onde o `seu_email` é o email com que você se cadastrou no GitHub.
 
-1. Digite no terminal `ssh-keygen -t rsa -C "your_email@example.com"`
-1. Nesse ponto, o ssh-keygen vai pedir uma senha. Deixe em branco
-1. Digite no terminal `eval "$(ssh-agent -s)"`
-1. Digite no terminal `ssh-add ~/.ssh/id_rsa`
-1. Digite no terminal `gedit ~/.ssh/id_rsa.pub`. Um editor de texto deve abrir. Copie tudo.
+Normalmente, quando você fizer qualquer operação no GitHUb, você tem que digitar seu email e sua senha. Para não precisar fazer isso, vamos configurar o SSH:
+
+1. `$ ssh-keygen -t rsa -C "seu_email"`
+1. Agora, o ssh-keygen vai pedir várias coisas. Deixe todas em branco.
+1. `$ eval "$(ssh-agent -s)"`
+1. `$ ssh-add ~/.ssh/id_rsa`
+1. `$ gedit ~/.ssh/id_rsa.pub`. Um editor de texto deve abrir. Copie tudo.
 1. [Siga os passos para adicionar a senha na conta do GitHub](https://help.github.com/articles/generating-ssh-keys/#step-3-add-your-ssh-key-to-your-account)
-1. A partir daqui o ssh deve estar funcionando.[Teste seguindo o **Step 4** do guia do GitHub](https://help.github.com/articles/generating-ssh-keys/#step-4-test-everything-out)
+1. A partir daqui o ssh deve estar funcionando. [Teste seguindo o *Step 4* do guia do GitHub](https://help.github.com/articles/generating-ssh-keys/#step-4-test-everything-out)
 
-  
+### O Vim
+O Vim é um editor de texto que abre direto no terminal, e é o que acabamos de configurar para usar o git. No começo, ele é bem diferente de usar, mas como vamos usar poucos comandos, ele não é tão difícil assim.
+
+Vamos fazer um mini-curso de vim. Abra o vim digitando 
+```
+$ vim
+```
+
+O vim tem basicamente dois modos: O modo de **Comando** e **Inserção**. Ele abre no modo de comando. Aperte [INSERT] para ir para o modo de inserção (Deve estar escrito `-- INSERT --` no canto inferior esquerdo da tela) e digite qualquer coisa.
+
+Para salvar o que escrevemos, aperte [ESC] (O `-- INSERT --` tem que sumir da tela). Para salvar um arquivo com o nome `teste`, digite `:w teste`. Para sair, digite `:q`.
+
+O vim pode ser bem espartano, mas ele, por padrão, faz tudo o que ele pode fazer para que você não perca dados. Por exemplo, ele não te deixa sair até que você salve suas alterações, ou ele não deixa você sobreescrever arquivos que não estejam abertos. Para forçar ele a fazer essas coisas, coloque um `!` depois do comando, por exemplo, `:q!` sai sem salvar o arquivo, e `:w!` sobrescreve arquivos.
+
+Para abrir arquivos do disco com o vim, digite
+```
+$ vim nome_do_arquivo
+```
+
 ### Trabalhando com o git
-
-
 O git segue um loop de trabalho:
 
 ```
@@ -212,34 +250,44 @@ Alterações de código --> git status (1) --> git diff (2) ---
 
 Onde:
 
-(1): Mostra os arquivos alterados
-
-(2): Verifica as alterações
-
-(3): Adiciona todos os arquivos
-
-(4): "Empacota" as alterações e adiciona uma mensagem
-
-(5): Empurra as alterações para o servidor
+1. Mostra os arquivos alterados
+2. Verifica as alterações
+3. Adiciona todos os arquivos
+4. "Empacota" as alterações e adiciona uma mensagem
+5. Empurra as alterações para o servidor
 
 
 ### Banco de dados (PostgreSQL)
 
+Para instalar o PostgreSQL digite:
+
+```
+$ sudo apt-get install postgresql
+$ sudo apt-get install postgresql-contrib
+$ sudo apt-get install pgadmin3
+$ sudo apt-get install postgresql-server-dev-9.3
+```
+
 Agora não é bom copiar os comandos. Digite do jeito que estão aparecendo aqui:
 
-1. `sudo -u postgres psql postgres`
-1. `\password postgres`
-1. `root` (Não vai aparecer na tela, igual o da instalação)
-1. `root`
-1. `CREATE EXTENSION adminpack;`
-1. `\q`
-1. `sudo -u postgres createuser --superuser $USER`
-1. `sudo -u postgres psql`
-1. `\password $USER`
-1. `\q`
-1. `sudo -u postgres createdb $USER`
+1. `$ sudo -u postgres psql postgres`
+1. `# \password postgres`
+1. `# root` (Não vai aparecer na tela, igual o da instalação)
+1. `# root`
+1. `# CREATE EXTENSION adminpack;`
+1. `# \q`
+1. `$ sudo -u postgres createuser --superuser $USER`
+1. `$ sudo -u postgres psql`
+1. `# \password $USER`
+1. `# \q`
+1. `$ sudo -u postgres createdb $USER`
 
-Ufa. Por fim, digite `sudo gedit /etc/postgresql/9.3/main/pg_hba.conf` e no editor que abrir, substitua as linhas
+Ufa. Por fim, digite
+```
+$ sudo gedit /etc/postgresql/9.3/main/pg_hba.conf
+```
+
+e no editor que abrir, substitua as linhas
 
 ```
 # Database administrative login by Unix domain socket
@@ -251,30 +299,16 @@ por
 local   all             postgres                                md5
 ```
 
-Recarregue o postgres usando `sudo service postgres reload`.
+Recarregue o postgres usando 
+```
+$ sudo service postgres reload
+```
 
-Finalmente, rode o pgAdmin3 usando `pgadmin3` e configure uma nova conexão usando o nome e senha de seu usuario. Aproveite e crie um banco de dados chamado `cidadeiluminada`
-
-
-### Baixando e Instalando a aplicação web
-
-Depois de uma excitante viagem, finalmente podemos instalar a aplicação:
-
-Em uma pasta, digite `git clone git@github.com:HardDiskD/TCMCidadeIluminada.git`. Isso irá criar uma pasta chamada `TCMCidadeIluminada`, com uma pasta `webservice` e outra `android` dentro.
-
-Vamos agora instalar a aplicação em python:
-
-1. `cd TCMCidadeIluminada` (se você ainda não entrou nessa pasta)
-1. `sh install-cidadeiluminada.sh`
-
-
-Se deu tudo certo, o seu terminal vai ter algo do tipo
-
-`Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)`
-
-aparecendo.
-
-Por fim, crie o usuário padrão: `python manage.py criar_usuario admin admin`
+Finalmente, rode o pgAdmin3 usando 
+```
+$ pgadmin3
+```
+e configure uma nova conexão usando o nome e senha de seu usuario do Ubuntu.
 
 ## Android
 
@@ -305,15 +339,3 @@ $ printf "cd <caminho_para_a_pasta>/android-studio/bin\nsh studio.sh" >> android
 $ chmod +x android_studio
 $ sudo mv android_studio /bin/
 ```
-
-##Configurações de ambiente
-
-O arquivo `settings.py` guarda várias várias variáveis de configuração de ambiente. Neste arquivo estão guardado todos os valores padrões e de exemplo.
-
-Para configurar o seu ambiente local, crie uma pasta chamada `instance` na pasta onde está o `manage.py`, e dentro dela crie um arquivo chamado `settings_local.py`. A connection string do Postgres deve ser configurada no `settings_local.py`.
-
-**Somente o arquivo `settings_local.py` deve ser alterado, e no arquivo `settings.py` ficam somente os exemplos de chave/valor.**
-
-O `settings_local.py` será lido depois do settings de fora, então para configurar localmente, somente substitua as variáveis em **maiúsculo** para os valores desejados.
-
-**Sobre a conexão do Postgres:** Do modo que foi configurado nesse arquivo, o campo `username` deve ficar vazio. Isso pode ou não dar problemas. Vou perguntar para quem sabe e atualizar isso aqui. Eu *acho* que não tem problema porque essas instruções são só para máquinas de desenvolvimento.
