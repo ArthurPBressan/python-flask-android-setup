@@ -274,21 +274,27 @@ $ vim nome_do_arquivo
 O git segue um loop de trabalho:
 
 ```
-
-Alterações de código --> git status (1) --> git diff (2) ---
- ^                                                         |
- |                                                         |
- |                                                         v
- git push (5) <--- git commit -m "Mensagem" (4) <--- git add (3)
+ Inicie aqui
+ |
+ V
+ git pull (1)
+ |
+ V
+ Alterações de código --> git status (2) --> git diff (3) ---
+ ^                                                          |
+ |                                                          |
+ |                                                          V
+ git push (6) <--- git commit -m "Mensagem" (5) <--- git add (4)
 ```
 
 Onde:
 
-1. Mostra os arquivos alterados
-2. Verifica as alterações
-3. Adiciona todos os arquivos
-4. "Empacota" as alterações e adiciona uma mensagem
-5. Empurra as alterações para o servidor
+1. Atualiza a sua cópia local
+2. Mostra os arquivos alterados
+3. Verifica as alterações
+4. Adiciona todos os arquivos
+5. "Empacota" as alterações e adiciona uma mensagem
+6. Empurra as alterações para o servidor
 
 
 ### Banco de dados (PostgreSQL)
